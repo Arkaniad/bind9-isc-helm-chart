@@ -129,21 +129,6 @@ jobs:
       with:
         version: v3.5.3
 
-    - name: Install Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-
-    - name: Install dependencies
-      env:
-        RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-      run: |
-        bundle install
-
-    - name: Run tests
-      run: |
-        bundle exec m -r ./test/
-
   install:
     needs:
     - changes-install
