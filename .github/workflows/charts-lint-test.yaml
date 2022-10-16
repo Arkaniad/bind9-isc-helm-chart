@@ -74,6 +74,7 @@ jobs:
       run: |
         EXCLUDED=$(yq eval -j '.excluded-charts // []' .github/ct-install.yaml)
         echo "EXCLUDED: $EXCLUDED"
+        ct list-changed --config .github/ct-install.yaml
         CHARTS=$(ct list-changed --config .github/ct-install.yaml)
         echo "CHARTS: $CHARTS"
         CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
