@@ -3,5 +3,7 @@ target-branch: main
 debug: true
 check-version-increment: false
 helm-extra-args: --timeout 600s
+chart-dirs:
+- charts
 charts:
 - bind9
