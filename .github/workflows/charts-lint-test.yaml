@@ -26,7 +26,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.1
 
     - name: Install Dev tools
       run: |
@@ -62,7 +62,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.1
 
     - name: Install Dev tools
       run: |
@@ -103,7 +103,7 @@ jobs:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.1
 
     - name: Run chart-testing (lint)
       id: lint
@@ -128,21 +128,6 @@ jobs:
       uses: azure/setup-helm@v1.1
       with:
         version: v3.5.3
-
-    - name: Install Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-
-    - name: Install dependencies
-      env:
-        RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-      run: |
-        bundle install
-
-    - name: Run tests
-      run: |
-        bundle exec m -r ./test/
 
   install:
     needs:
@@ -171,7 +156,7 @@ jobs:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.1
 
     - name: Create k3d cluster
       uses: nolar/setup-k3d-k3s@v1
@@ -184,6 +169,7 @@ jobs:
 
     - name: Run chart-testing (install)
       run: ct install --config .github/ct-install.yaml --charts ${{ matrix.chart }}
+
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:
