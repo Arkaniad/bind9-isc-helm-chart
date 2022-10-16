@@ -4,4 +4,6 @@ debug: true
 check-version-increment: false
 helm-extra-args: --timeout 600s
 chart-repos:
+charts:
+- bind9
 validate-maintainers: false
