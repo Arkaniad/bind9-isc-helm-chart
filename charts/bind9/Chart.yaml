@@ -4,3 +4,11 @@ description: A Helm chart for Bind9 using the official ISC docker image
 type: application
 version: 0.3.1
 appVersion: "9.18"
+
+maintainers:
+  - name: Johannes Kastl
+    email: kastl@b1-systems.de
+    url: https://github.com/johanneskastl
+  - name: Rhea Danzey
+    email: rhea@isomemetric.com
+    url: https://github.com/Arkaniad
