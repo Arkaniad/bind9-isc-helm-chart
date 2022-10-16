@@ -169,6 +169,8 @@ jobs:
 
     - name: Run chart-testing (install)
       run: ct install --config .github/ct-install.yaml --charts ${{ matrix.chart }}
+      with:
+        matrix: ${{ fromJson(needs.changes-install.outputs.matrix) }}
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:
